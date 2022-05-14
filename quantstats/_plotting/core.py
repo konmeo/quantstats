@@ -44,8 +44,6 @@ _sns.set(
     font_scale=1.1,
     rc={
         "figure.figsize": (10, 6),
-        "axes.facecolor": "white",
-        "figure.facecolor": "white",
         "grid.color": "#dddddd",
         "grid.linewidth": 0.5,
         "lines.linewidth": 1.5,
@@ -165,9 +163,6 @@ def plot_returns_bars(
     if benchmark is None:
         colors = colors[1:]
     df.plot(kind="bar", ax=ax, color=colors)
-
-    fig.set_facecolor("white")
-    ax.set_facecolor("white")
 
     try:
         ax.set_xticklabels(df.index.year)
@@ -318,9 +313,6 @@ def plot_timeseries(
             color="gray",
         )
 
-    fig.set_facecolor("white")
-    ax.set_facecolor("white")
-
     if isinstance(benchmark, _pd.Series):
         ax.plot(benchmark, lw=lw, ls=ls, label=benchmark.name, color=colors[0])
 
@@ -462,9 +454,6 @@ def plot_histogram(
             fontsize=12,
             color="gray",
         )
-
-    fig.set_facecolor("white")
-    ax.set_facecolor("white")
 
     if isinstance(returns, _pd.DataFrame) and len(returns.columns) == 1:
         returns = returns[returns.columns[0]]
@@ -925,8 +914,6 @@ def plot_longest_drawdowns(
             color="gray",
         )
 
-    fig.set_facecolor("white")
-    ax.set_facecolor("white")
     series = _stats.compsum(returns) if compounded else returns.cumsum()
     ax.plot(series, lw=lw, label="Backtest", color=colors[0])
 
@@ -1048,9 +1035,6 @@ def plot_distribution(
             fontsize=12,
             color="gray",
         )
-
-    fig.set_facecolor("white")
-    ax.set_facecolor("white")
 
     _sns.boxplot(
         data=port,

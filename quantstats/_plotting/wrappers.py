@@ -123,7 +123,6 @@ def snapshot(
         title, fontsize=14, y=0.97, fontname=fontname, fontweight="bold", color="black"
     )
 
-    fig.set_facecolor("white")
 
     if subtitle:
         if isinstance(returns, _pd.Series):
@@ -231,7 +230,6 @@ def snapshot(
     axes[2].set_yticks(_np.arange(retmin, retmax, step=steps))
 
     for ax in axes:
-        ax.set_facecolor("white")
         ax.yaxis.set_label_coords(-0.1, 0.5)
         ax.yaxis.set_major_formatter(_StrMethodFormatter("{x:,.0f}%"))
 
@@ -342,8 +340,6 @@ def earnings(
     ax.yaxis.set_major_formatter(_FuncFormatter(_core.format_cur_axis))
     ax.yaxis.set_label_coords(-0.1, 0.5)
 
-    fig.set_facecolor("white")
-    ax.set_facecolor("white")
     fig.autofmt_xdate()
 
     try:
@@ -970,8 +966,6 @@ def monthly_heatmap(
     ax.spines["bottom"].set_visible(False)
     ax.spines["left"].set_visible(False)
 
-    fig.set_facecolor("white")
-    ax.set_facecolor("white")
 
     # _sns.set(font_scale=.9)
     if active and benchmark is not None:
