@@ -165,7 +165,7 @@ def snapshot(
                 lw=1 if grayscale else lw,
                 zorder=1,
             )
-    axes[0].axhline(0, color="silver", lw=1, zorder=0)
+    axes[0].axhline(0, color="silver", lw=1, zorder=0, alpha=0.25)
 
     axes[0].set_yscale("symlog" if log_scale else "linear")
     # axes[0].legend(fontsize=12)
@@ -187,7 +187,7 @@ def snapshot(
     elif isinstance(dd, _pd.DataFrame):
         for col in dd.columns:
             axes[1].plot(dd[col], label=col, lw=1 if grayscale else lw, zorder=1)
-    axes[1].axhline(0, color="silver", lw=1, zorder=0)
+    axes[1].axhline(0, color="silver", lw=1, zorder=0, alpha=0.25)
     if not grayscale:
         if isinstance(dd, _pd.Series):
             axes[1].fill_between(dd.index, 0, dd, color=colors[2], alpha=0.25)
@@ -212,8 +212,8 @@ def snapshot(
             axes[2].plot(
                 returns[col] * 100, color=colors[i], label=col, lw=0.5, zorder=1
             )
-    axes[2].axhline(0, color="silver", lw=1, zorder=0)
-    axes[2].axhline(0, color=colors[-1], linestyle="--", lw=1, zorder=2)
+    axes[2].axhline(0, color="silver", lw=1, zorder=0, alpha=0.25)
+    axes[2].axhline(0, color=colors[-1], linestyle="--", lw=1, zorder=2, alpha=0.25)
 
     axes[2].set_yscale("symlog" if log_scale else "linear")
     # axes[2].legend(fontsize=12)
