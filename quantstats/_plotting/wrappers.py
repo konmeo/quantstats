@@ -930,7 +930,7 @@ def rolling_sortino(
 def monthly_heatmap(
     returns,
     benchmark=None,
-    annot_size=10,
+    annot_size=12,
     figsize=(10, 5),
     cbar=True,
     square=False,
@@ -988,11 +988,12 @@ def monthly_heatmap(
             annot=True,
             center=0,
             annot_kws={"size": annot_size},
-            fmt="0.2f",
+            fmt="0.1f",
             linewidths=0.5,
             square=square,
             cbar=cbar,
             cmap=cmap,
+            mask=(returns == 0),
             cbar_kws={"format": "%.0f%%"},
         )
     else:
@@ -1010,11 +1011,12 @@ def monthly_heatmap(
             annot=True,
             center=0,
             annot_kws={"size": annot_size},
-            fmt="0.2f",
+            fmt="0.1f",
             linewidths=0.5,
             square=square,
             cbar=cbar,
             cmap=cmap,
+            mask=(returns == 0),
             cbar_kws={"format": "%.0f%%"},
         )
     # _sns.set(font_scale=1)
