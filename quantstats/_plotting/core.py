@@ -146,7 +146,7 @@ def plot_returns_bars(
 
     # use a more precise date string for the x axis locations in the toolbar
     fig.suptitle(
-        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="black"
+        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="gray"
     )
 
     if subtitle:
@@ -199,7 +199,7 @@ def plot_returns_bars(
     ax.set_xlabel("")
     if ylabel:
         ax.set_ylabel(
-            "Returns", fontname=fontname, fontweight="bold", fontsize=12, color="black"
+            "Returns", fontname=fontname, fontweight="bold", fontsize=12, color="gray"
         )
         ax.yaxis.set_label_coords(-0.1, 0.5)
 
@@ -220,9 +220,9 @@ def plot_returns_bars(
 
     if savefig:
         if isinstance(savefig, dict):
-            _plt.savefig(**savefig)
+            _plt.savefig(**savefig, transparent=True)
         else:
-            _plt.savefig(savefig)
+            _plt.savefig(savefig, transparent=True)
 
     if show:
         _plt.show(block=False)
@@ -299,7 +299,7 @@ def plot_timeseries(
     ax.spines["left"].set_visible(False)
 
     fig.suptitle(
-        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="black"
+        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="gray"
     )
 
     if subtitle:
@@ -361,7 +361,7 @@ def plot_timeseries(
     ax.set_xlabel("")
     if ylabel:
         ax.set_ylabel(
-            ylabel, fontname=fontname, fontweight="bold", fontsize=12, color="black"
+            ylabel, fontname=fontname, fontweight="bold", fontsize=12, color="gray"
         )
     ax.yaxis.set_label_coords(-0.1, 0.5)
 
@@ -380,9 +380,9 @@ def plot_timeseries(
 
     if savefig:
         if isinstance(savefig, dict):
-            _plt.savefig(**savefig)
+            _plt.savefig(**savefig, transparent=True)
         else:
-            _plt.savefig(savefig)
+            _plt.savefig(savefig, transparent=True)
 
     if show:
         _plt.show(block=False)
@@ -441,7 +441,7 @@ def plot_histogram(
     ax.spines["left"].set_visible(False)
 
     fig.suptitle(
-        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="black"
+        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="gray"
     )
 
     if subtitle:
@@ -502,7 +502,7 @@ def plot_histogram(
         if isinstance(returns, _pd.Series):
             combined_returns = returns.copy()
             if kde:
-                _sns.kdeplot(data=combined_returns, color="black", ax=ax)
+                _sns.kdeplot(data=combined_returns, color="gray", ax=ax)
             x = _sns.histplot(
                 data=combined_returns,
                 bins=bins,
@@ -554,7 +554,7 @@ def plot_histogram(
 
     ax.set_xlabel("")
     ax.set_ylabel(
-        "Occurrences", fontname=fontname, fontweight="bold", fontsize=12, color="black"
+        "Occurrences", fontname=fontname, fontweight="bold", fontsize=12, color="gray"
     )
     ax.yaxis.set_label_coords(-0.1, 0.5)
 
@@ -572,9 +572,9 @@ def plot_histogram(
 
     if savefig:
         if isinstance(savefig, dict):
-            _plt.savefig(**savefig)
+            _plt.savefig(**savefig, transparent=True)
         else:
-            _plt.savefig(savefig)
+            _plt.savefig(savefig, transparent=True)
 
     if show:
         _plt.show(block=False)
@@ -655,7 +655,7 @@ def plot_rolling_stats(
     # use a more precise date string for the x axis locations in the toolbar
     # ax.fmt_xdata = _mdates.DateFormatter('%Y-%m-%d')\
     fig.suptitle(
-        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="black"
+        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="gray"
     )
 
     if subtitle:
@@ -679,7 +679,7 @@ def plot_rolling_stats(
 
     if ylabel:
         ax.set_ylabel(
-            ylabel, fontname=fontname, fontweight="bold", fontsize=12, color="black"
+            ylabel, fontname=fontname, fontweight="bold", fontsize=12, color="gray"
         )
         ax.yaxis.set_label_coords(-0.1, 0.5)
 
@@ -702,9 +702,9 @@ def plot_rolling_stats(
 
     if savefig:
         if isinstance(savefig, dict):
-            _plt.savefig(**savefig)
+            _plt.savefig(**savefig, transparent=True)
         else:
-            _plt.savefig(savefig)
+            _plt.savefig(savefig, transparent=True)
     if show:
         _plt.show(block=False)
 
@@ -744,7 +744,7 @@ def plot_rolling_beta(
     ax.spines["left"].set_visible(False)
 
     fig.suptitle(
-        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="black"
+        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="gray"
     )
 
     if subtitle:
@@ -828,7 +828,7 @@ def plot_rolling_beta(
 
     if ylabel:
         ax.set_ylabel(
-            "Beta", fontname=fontname, fontweight="bold", fontsize=12, color="black"
+            "Beta", fontname=fontname, fontweight="bold", fontsize=12, color="gray"
         )
         ax.yaxis.set_label_coords(-0.1, 0.5)
 
@@ -848,9 +848,9 @@ def plot_rolling_beta(
 
     if savefig:
         if isinstance(savefig, dict):
-            _plt.savefig(**savefig)
+            _plt.savefig(**savefig, transparent=True)
         else:
-            _plt.savefig(savefig)
+            _plt.savefig(savefig, transparent=True)
 
     if show:
         _plt.show(block=False)
@@ -901,7 +901,7 @@ def plot_longest_drawdowns(
         fontweight="bold",
         fontname=fontname,
         fontsize=14,
-        color="black",
+        color="gray",
     )
     if subtitle:
         ax.set_title(
@@ -939,7 +939,7 @@ def plot_longest_drawdowns(
             fontname=fontname,
             fontweight="bold",
             fontsize=12,
-            color="black",
+            color="gray",
         )
         ax.yaxis.set_label_coords(-0.1, 0.5)
 
@@ -961,9 +961,9 @@ def plot_longest_drawdowns(
 
     if savefig:
         if isinstance(savefig, dict):
-            _plt.savefig(**savefig)
+            _plt.savefig(**savefig, transparent=True)
         else:
-            _plt.savefig(savefig)
+            _plt.savefig(savefig, transparent=True)
 
     if show:
         _plt.show(block=False)
@@ -1022,7 +1022,7 @@ def plot_distribution(
     else:
         title = "Return Quantiles"
     fig.suptitle(
-        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="black"
+        title, y=0.94, fontweight="bold", fontname=fontname, fontsize=14, color="gray"
     )
 
     if subtitle:
@@ -1054,7 +1054,7 @@ def plot_distribution(
 
     if ylabel:
         ax.set_ylabel(
-            "Returns", fontname=fontname, fontweight="bold", fontsize=12, color="black"
+            "Returns", fontname=fontname, fontweight="bold", fontsize=12, color="gray"
         )
         ax.yaxis.set_label_coords(-0.1, 0.5)
 
@@ -1071,9 +1071,9 @@ def plot_distribution(
 
     if savefig:
         if isinstance(savefig, dict):
-            _plt.savefig(**savefig)
+            _plt.savefig(**savefig, transparent=True)
         else:
-            _plt.savefig(savefig)
+            _plt.savefig(savefig, transparent=True)
 
     if show:
         _plt.show(block=False)
@@ -1114,7 +1114,7 @@ def plot_table(
 
     if title != "":
         ax.set_title(
-            title, fontweight="bold", fontsize=14, color="black", loc=title_loc
+            title, fontweight="bold", fontsize=14, color="gray", loc=title_loc
         )
 
     the_table = ax.table(
@@ -1134,17 +1134,17 @@ def plot_table(
 
     for (row, col), cell in the_table.get_celld().items():
         cell.set_height(0.08)
-        cell.set_text_props(color="black")
+        cell.set_text_props(color="gray")
         cell.set_edgecolor("#dddddd")
         if row == 0 and header:
             cell.set_edgecolor("black")
             cell.set_facecolor("black")
             cell.set_linewidth(2)
-            cell.set_text_props(weight="bold", color="black")
+            cell.set_text_props(weight="bold", color="gray")
         elif col == 0 and "vertical" in orient:
             cell.set_edgecolor("#dddddd")
             cell.set_linewidth(1)
-            cell.set_text_props(weight="bold", color="black")
+            cell.set_text_props(weight="bold", color="gray")
         elif row > 1:
             cell.set_linewidth(1)
 
@@ -1163,9 +1163,9 @@ def plot_table(
 
     if savefig:
         if isinstance(savefig, dict):
-            _plt.savefig(**savefig)
+            _plt.savefig(**savefig, transparent=True)
         else:
-            _plt.savefig(savefig)
+            _plt.savefig(savefig, transparent=True)
 
     if show:
         _plt.show(block=False)

@@ -108,7 +108,7 @@ def snapshot(
             "              To change this behavior, use a pandas Series or pass the column name in the `strategy_col` parameter.",
             ha="left",
             fontsize=11,
-            color="black",
+            color="gray",
             alpha=0.6,
             linespacing=1.5,
         )
@@ -120,7 +120,7 @@ def snapshot(
         ax.spines["left"].set_visible(False)
 
     fig.suptitle(
-        title, fontsize=14, y=0.97, fontname=fontname, fontweight="bold", color="black"
+        title, fontsize=14, y=0.97, fontname=fontname, fontweight="bold", color="gray"
     )
 
 
@@ -247,9 +247,9 @@ def snapshot(
 
     if savefig:
         if isinstance(savefig, dict):
-            _plt.savefig(**savefig)
+            _plt.savefig(**savefig, transparent=True)
         else:
-            _plt.savefig(savefig)
+            _plt.savefig(savefig, transparent=True)
 
     if show:
         _plt.show(block=False)
@@ -292,7 +292,7 @@ def earnings(
     ax.spines["left"].set_visible(False)
 
     fig.suptitle(
-        title, fontsize=14, y=0.995, fontname=fontname, fontweight="bold", color="black"
+        title, fontsize=14, y=0.995, fontname=fontname, fontweight="bold", color="gray"
     )
 
     if subtitle:
@@ -353,9 +353,9 @@ def earnings(
 
     if savefig:
         if isinstance(savefig, dict):
-            _plt.savefig(**savefig)
+            _plt.savefig(**savefig, transparent=True)
         else:
-            _plt.savefig(savefig)
+            _plt.savefig(savefig, transparent=True)
 
     if show:
         _plt.show(block=False)
@@ -975,7 +975,7 @@ def monthly_heatmap(
             y=0.995,
             fontname=fontname,
             fontweight="bold",
-            color="black",
+            color="gray",
         )
         benchmark = (
             _stats.monthly_returns(benchmark, eoy=eoy, compounded=compounded) * 100
@@ -987,7 +987,7 @@ def monthly_heatmap(
             ax=ax,
             annot=True,
             center=0,
-            annot_kws={"size": annot_size},
+            annot_kws={"size": annot_size, "color": "gray"},
             fmt="0.1f",
             linewidths=0.5,
             square=square,
@@ -1003,14 +1003,14 @@ def monthly_heatmap(
             y=0.995,
             fontname=fontname,
             fontweight="bold",
-            color="black",
+            color="gray",
         )
         ax = _sns.heatmap(
             returns,
             ax=ax,
             annot=True,
             center=0,
-            annot_kws={"size": annot_size},
+            annot_kws={"size": annot_size, "color": "gray"},
             fmt="0.1f",
             linewidths=0.5,
             square=square,
@@ -1041,9 +1041,9 @@ def monthly_heatmap(
 
     if savefig:
         if isinstance(savefig, dict):
-            _plt.savefig(**savefig)
+            _plt.savefig(**savefig, transparent=True)
         else:
-            _plt.savefig(savefig)
+            _plt.savefig(savefig, transparent=True)
 
     if show:
         _plt.show(block=False)
